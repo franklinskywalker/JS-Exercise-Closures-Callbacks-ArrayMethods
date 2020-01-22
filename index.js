@@ -103,7 +103,7 @@ function processLastItem(stringlist, callback) {
 
 
 function processSum( numberList, callback) {
-  return callback(numberList.reduce((a, b) => a + b))
+  return callback(numberList.reduce((a, b) => a + b, 0))
 };
 
 
@@ -200,8 +200,12 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * @returns an array with all the runners' full names in the following format: "Smith, John".
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
-function getFullNames(/* CODE HERE */) {
-  /* CODE HERE */
+function getFullNames(runners) {
+  runners = runners.forEach(( first_name, last_name) => {
+    return `${first_name}, ${last_name}`;
+  });
+
+  return runners;
 }
 
 /**
