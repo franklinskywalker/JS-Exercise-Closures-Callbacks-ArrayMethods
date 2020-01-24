@@ -155,8 +155,8 @@ function processSum( numberList, callback) {
 */
 function processContains(item, list, callback) {
   /* CODE HERE */
-
-
+   let find = list.includes(item);
+   return callback(find);
 }
 
 /**
@@ -201,12 +201,14 @@ function processDuplicateFree(/* CODE HERE ONLY AFTER COMPLETING ALL OTHER TASKS
  * The full names appear in the array in the same order the runners appear in the `runners` array.
 */
 function getFullNames(runners) {
-  runners = runners.forEach(( first_name, last_name) => {
-    return `${first_name}, ${last_name}`;
+  this.runnerNames = [];
+  runners.forEach(function(index){
+    return this.runnerNames.push(`${index.last_name}, ${index.first_name}`)
   });
 
-  return runners;
+  return this.runnerNames;
 }
+
 
 /**
  * ### Challenge `firstNamesAllCaps`
@@ -220,9 +222,14 @@ function getFullNames(runners) {
  * @returns an array with all the runners' first names in ALL CAPS.
  * The first names appear in the array in the same order the runners appear in the `runners` array.
 */
-function firstNamesAllCaps(/* CODE HERE */) {
-  /* CODE HERE */
-}
+function firstNamesAllCaps(runners) {
+  let runnersCap = runners.map( (x) => {
+    return x.toUpperCase();
+  } )
+  return runnersCap;
+};
+
+
 
 /**
  * ### Challenge `getRunnersByTShirtSize`
